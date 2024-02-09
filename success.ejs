@@ -111,6 +111,16 @@
             color: black;
             text-decoration: underline;
         }
+
+        .row button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .row button a:hover {
+            text-decoration: none;
+            color: black;
+        }
         
         .conditionals a {
             color: rgb(192, 57, 86);
@@ -119,50 +129,34 @@
 </head>
 <body>
     <div class="wrapper">
-        <form method="POST" action="/">
+        <form method="POST" action="/success">
             <div class="container-fluid">
 
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h3>BOOK REQUEST FORM</h3>
+                        <h3>BOOK SEND!</h3>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 room">
-                        <input placeholder="Name Surname" name="name" type="text">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="color: white; text-align: center;">
+                        <h6>--- Details --- </h6>
                     </div>
                 </div>
+
+                <p>Name: <%= name %></p>
+                <p>Group: <%= group %></p>
+                <p>Email: <%= email %></p>
+                <p>Request id:  <%= id %></p>
 
                 <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 room">
-                        <input placeholder="Group" name="group" type="text">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <button><a href="/delete-req?id=<%= id %>">Delete request</a></button>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <button><a href="/update-req?id=<%= id %>&name=<%= name %>&group=<%= group %>&email=<%= email %>">Update request</a></button>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 room">
-                        <input placeholder="Email" name="email" type="text">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 conditionals">
-                        <a href="https://www.booking.com/content/terms.ru.html?aid=356980&label=gog235jc-1DCBQoggJCBXRlcm1zSDNYA2iAAYgBAZgBIbgBF8gBDNgBA-gBAYgCAagCA7gCzMztqQbAAgHSAiQ2NDVhOTYwZi1jNGZjLTQxODctODJkOC01ZTJiOGU5MTVmZmXYAgTgAgE&sid=2d2fa379a711f913fae904385843d761&keep_landing=1&">Booking conditionals</a>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 checkbox">
-                        <input type="checkbox">
-                        <label for="terms">I agree with all conditions</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <button id="submitButton" type="submit" name="submit" value="Submit">Submit</button>
-                    </div>
-                </div>
-
-            </div>
         </form>
     </div>
 </body>
